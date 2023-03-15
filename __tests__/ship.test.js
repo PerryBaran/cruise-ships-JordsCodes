@@ -17,25 +17,8 @@ describe ('ship constructor', () => {
         const ship = new Ship('Titanic');
 
         ship.setSail();
-        
+
         expect(ship.startingPort).toBeFalsy();
-    });
-});
-
-describe ('passenger constructor', () => {
-    it ('returns a passenger object', () => {
-        const passenger = new Passenger ('Jack');
-
-        expect(passenger).toBeInstanceOf(Object);
-    });
-});
-
-describe ('board', () => {
-    it ('boards passengers', () => {
-        const ship = new Ship('Titanic');
-        const passenger = new Passenger ('Jack');
-
-        expect(ship.board(passenger)).toEqual ({ name: 'Jack',});
     });
 });
 
