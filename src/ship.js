@@ -10,7 +10,7 @@ function Passenger (name) {
 
 Ship.prototype.setSail = function (ship) {
     
-    this.startingPort = "";
+    this.startingPort = ""
 }
 
 module.exports = {Ship, Passenger};
