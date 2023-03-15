@@ -12,6 +12,14 @@ describe ('ship constructor', () => {
 
         expect(ship.startingPort).toBe('France');
     });
+
+    it ('can set sail', () => {
+        const ship = new Ship('Titanic');
+
+        ship.setSail();
+        
+        expect(ship.startingPort).toBeFalsy();
+    });
 });
 
 describe ('passenger constructor', () => {

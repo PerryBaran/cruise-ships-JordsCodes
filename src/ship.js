@@ -9,9 +9,13 @@ function Passenger (name) {
 }
 
 Ship.prototype.board = function (passenger) {
-    console.log(passenger);
     this.passengers.push(passenger);
     return this.passengers[0];
+}
+
+Ship.prototype.setSail = function (ship) {
+    
+    this.startingPort = "";
 }
 
 module.exports = {Ship, Passenger};
