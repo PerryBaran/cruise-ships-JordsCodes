@@ -1,16 +1,18 @@
 function Ship (name) {
     this.name = name,
-    this.startingPort = 'France',
+    this.currentPort = 'Amsterdam',
     this.passengers = [];
-}
+};
 
-function Passenger (name) {
+function Port (name) {
     this.name = name;
-}
+};
 
-Ship.prototype.setSail = function (ship) {
-    
-    this.startingPort = ""
-}
+Ship.prototype.setSail = function () {
+    this.currentPort = "";
+};
 
-module.exports = {Ship, Passenger};
+Ship.prototype.dock = function (port) {
+    this.currentPort = port;
+}
+module.exports = {Ship, Port};
