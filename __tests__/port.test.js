@@ -1,15 +1,15 @@
 const { Port } = require('../src/ship');
 
-describe ('ship constructor', () => {
-    it ('returns a ship object', () => {
-        const port = new Port('Amsterdam');
+describe ('port constructor', () => {
+  it ('returns a port object', () => {
+    const port = new Port('Amsterdam');
 
-        expect(port).toBeInstanceOf(Object);
-    });
+    expect(port).toBeInstanceOf(Object);
+  });
 
-    it('has a name', () => {
-        const port = new Port('Amsterdam');
+  it('has a name', () => {
+    const port = new Port('Amsterdam');
         
-        expect(port.name).toEqual('Amsterdam');
-    });
+    expect(port.name).toEqual('Amsterdam');
+  });
 });

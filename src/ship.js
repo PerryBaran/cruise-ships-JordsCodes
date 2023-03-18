@@ -1,18 +1,38 @@
-function Ship (name) {
-    this.name = name,
-    this.currentPort = 'Amsterdam',
-    this.passengers = [];
+class Ship {
+  constructor(itinerary){
+    this.itinerary = itinerary;
+    this.currentPort = itinerary.ports[0];
+    this.previousPort = null
+  };
+  setSail() {
+    const itinerary = this.itinerary;
+    const currentPortIndex = itinerary.ports.indexOf(this.currentPort);
+  
+    if (currentPortIndex === (itinerary.ports.length - 1)) {
+      throw new Error('End of itinerary reached');
+    }
+  
+    this.previousPort = this.currentPort;
+    this.currentPort = null;
+  };
+  dock() {
+    const itinerary = this.itinerary;
+    const previousPortIndex = itinerary.ports.indexOf(this.previousPort);
+ 
+    this.currentPort = itinerary.ports[previousPortIndex + 1]
+  };
 };
 
-function Port (name) {
-    this.name = name;
+class Port {
+  constructor(name){
+    this.name = name
+ }
 };
 
-Ship.prototype.setSail = function () {
-    this.currentPort = "";
+class Itinerary {
+  constructor(ports){
+    this.ports = ports;
+ }
 };
 
-Ship.prototype.dock = function (port) {
-    this.currentPort = port;
-}
-module.exports = {Ship, Port};
+module.exports = { Ship, Port, Itinerary };
