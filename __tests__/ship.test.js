@@ -60,6 +60,18 @@ describe ('ship constructor', () => {
     expect(() => ship.setSail()).toThrowError('End of itinerary reached');
   });
 
+  it('gets added to port on instantiation', () => {
+    const amsterdam = new Port('Amsterdam');
+    const itinerary = new Itinerary([amsterdam]);
+    const ship = new Ship(itinerary);
+    
+    expect (amsterdam.ships).toContain(ship);
+  });
 });
+
+//Create a new test Ship > gets added to port on instantiation
+// in the Ship test suite. You'll need to check 
+// ship.currentPort.ships to see if it 
+//contains your Ship instance.
 
 

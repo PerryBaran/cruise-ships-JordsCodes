@@ -2,7 +2,8 @@ class Ship {
   constructor(itinerary){
     this.itinerary = itinerary;
     this.currentPort = itinerary.ports[0];
-    this.previousPort = null
+    this.previousPort = null;
+    this.currentPort.addShip(this);
   };
   setSail() {
     const itinerary = this.itinerary;
@@ -25,14 +26,22 @@ class Ship {
 
 class Port {
   constructor(name){
-    this.name = name
- }
+    this.name = name;
+    this.ships = [];
+ };
+ addShip(ship) {
+    this.ships.push(ship);
+ };
+ removeShip(ship) {
+    const index = this.ships.indexOf(ship);
+    this.ships.splice(index, 1);
+ };
 };
 
 class Itinerary {
   constructor(ports){
     this.ports = ports;
- }
+ };
 };
 
 module.exports = { Ship, Port, Itinerary };
