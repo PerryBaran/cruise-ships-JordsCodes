@@ -3,7 +3,7 @@ const { Ship, Port, Itinerary } = require('../src/ship');
 describe ('ship constructor', () => {
   it ('can be instantiated', () => {
     const port = new Port ('Amsterdam');
-    const itinerary = new Itinerary (port);
+    const itinerary = new Itinerary ([port]);
     const ship = new Ship (itinerary);
 
     expect(ship).toBeInstanceOf(Object);
@@ -34,7 +34,12 @@ describe ('ship constructor', () => {
     ship.setSail();
   
     expect(ship.currentPort).toBeFalsy();
+    expect(lochness.ships).not.toContain(ship);
   });
+
+  //Modify the test for Ship > can set sail to test that 
+  //the Ship's previous currentPort no longer contains the 
+  //Ship instance on its ships property
 
   it ('can dock at a new port', () => {
     const amsterdam = new Port('Amsterdam');
@@ -46,6 +51,7 @@ describe ('ship constructor', () => {
     ship.dock();
 
     expect (ship.currentPort).toBe(lochness);
+    expect (lochness.ships).toContain(ship);
   });
 
   it('can\'t sail further than its itinerary', () => {
@@ -68,10 +74,5 @@ describe ('ship constructor', () => {
     expect (amsterdam.ships).toContain(ship);
   });
 });
-
-//Create a new test Ship > gets added to port on instantiation
-// in the Ship test suite. You'll need to check 
-// ship.currentPort.ships to see if it 
-//contains your Ship instance.
 
 
