@@ -7,8 +7,8 @@ describe ('itinerary constructor', () => {
     expect(itinerary).toBeInstanceOf(Object);
   });
   it ('has ports', () => {
-    const amsterdam = new Port('Amsterdam');
-    const lochness = new Port ('Loch Ness');
+    const amsterdam = jest.fn();
+    const lochness = jest.fn();
     const itinerary = new Itinerary([amsterdam, lochness]);
         
     expect(itinerary.ports).toEqual([amsterdam, lochness]);
