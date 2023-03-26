@@ -1,4 +1,4 @@
-const { Itinerary, Port } = require ('../src/ship');
+const { Itinerary } = require ('../src/ship');
 
 describe ('itinerary constructor', () => {
   it ('returns an itinerary object', () => {

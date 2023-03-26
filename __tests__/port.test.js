@@ -1,31 +1,27 @@
 const { Port } = require('../src/ship');
 
 describe ('port', () => {
-
+  let port;
+  let ship;
+  let titanic;
+  let queenMary;
   describe ('constructor', () => {
-    let port;
     
     beforeEach(() => {
       port = new Port('Amsterdam');
     });
 
     it ('returns a port object', () => {
-      
       expect(port).toBeInstanceOf(Object);
     });
 
     it('has a name', () => {
-          
       expect(port.name).toEqual('Amsterdam');
     });
   });
 
   describe ('ships manager', () => {
-    let port;
-    let ship;
-    let titanic;
-    let queenMary;
-
+  
     beforeEach(() => {
       port = new Port ('Amsterdam');
       ship = jest.fn();
