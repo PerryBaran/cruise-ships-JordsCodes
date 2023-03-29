@@ -1,10 +1,11 @@
-const { Port } = require('../src/ship');
+const { Port } = require('../src/port');
 
 describe ('port', () => {
   let port;
   let ship;
   let titanic;
   let queenMary;
+
   describe ('constructor', () => {
     
     beforeEach(() => {
@@ -21,7 +22,7 @@ describe ('port', () => {
   });
 
   describe ('ships manager', () => {
-  
+
     beforeEach(() => {
       port = new Port ('Amsterdam');
       ship = jest.fn();

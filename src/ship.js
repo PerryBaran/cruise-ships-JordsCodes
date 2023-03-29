@@ -26,24 +26,4 @@ class Ship {
   };
 };
 
-class Port {
-  constructor(name){
-    this.name = name;
-    this.ships = [];
-  };
-  addShip(ship) {
-    this.ships.push(ship);
-  };
-  removeShip(ship) {
-    const index = this.ships.indexOf(ship);
-    this.ships.splice(index, 1);
-  };
-};
-
-class Itinerary {
-  constructor(ports){
-    this.ports = ports;
-  };
-};
-
-module.exports = { Ship, Port, Itinerary };
+module.exports = { Ship };
