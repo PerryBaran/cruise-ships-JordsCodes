@@ -7,7 +7,6 @@ describe ('port', () => {
   let queenMary;
 
   describe ('constructor', () => {
-    
     beforeEach(() => {
       port = new Port('Amsterdam');
     });
@@ -22,7 +21,6 @@ describe ('port', () => {
   });
 
   describe ('ships manager', () => {
-
     beforeEach(() => {
       port = new Port ('Amsterdam');
       ship = jest.fn();
