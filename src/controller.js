@@ -26,10 +26,8 @@ Controller.prototype = {
     ports.forEach((port, index) => {
       const newPortElement = document.createElement('div');
       newPortElement.className = 'port';
-
       newPortElement.dataset.portName = port.name;
       newPortElement.dataset.portIndex = index;
-
       const portsElementWidth = parseInt(portsElement.style.width, 10);
       portsElement.style.width = `${portsElementWidth + 256}px`;
     
@@ -38,11 +36,10 @@ Controller.prototype = {
   },
   renderShip() {
     const ship = this.ship;
-
     const shipPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
     const portElement = document.querySelector(`[data-port-index='${shipPortIndex}']`);
-    
     const shipElement = document.querySelector('#ship');
+
     shipElement.style.top = `${portElement.offsetTop}px`;
     shipElement.style.left = `${portElement.offsetLeft}px`;
     shipElement.style.top = `${portElement.offsetTop + 32}px`;
@@ -53,6 +50,7 @@ Controller.prototype = {
     const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
     const nextPortIndex = currentPortIndex + 1;
     const nextPortElement = document.querySelector(`[data-port-index='${nextPortIndex}']`);
+    
     if (!nextPortElement) {
       return this.renderMessage('End of the line!');
     }
@@ -75,8 +73,8 @@ Controller.prototype = {
     const messageElement = document.createElement('div');
     messageElement.id = 'message';
     messageElement.innerHTML = message;
-
     const viewport = document.querySelector('#viewport');
+
     viewport.appendChild(messageElement);
 
     setTimeout(() => {
@@ -86,7 +84,6 @@ Controller.prototype = {
   renderDisplay() {
     const body = document.querySelector('#body');
     const displayElement = document.createElement('div');
-
     const currentPortIndex = ship.itinerary.ports.indexOf(ship.currentPort);
     const nextPortIndex = currentPortIndex + 1;
 
@@ -96,12 +93,12 @@ Controller.prototype = {
       displayElement.innerHTML = `Current Port: ${this.ship.currentPort.name}<br/><br/> Next Port: End of the line :(`;
     }
     else {
-    displayElement.innerHTML = `Current Port: ${this.ship.currentPort.name}<br/> <br/> Next Port: ${nextPort.name}`;
+      displayElement.innerHTML = `Current Port: ${this.ship.currentPort.name}<br/> <br/> Next Port: ${nextPort.name}`;
     };
+
     body.appendChild(displayElement);
   }
 };
-
   if (typeof module !== 'undefined' && module.exports) {
     module.exports = { Controller };
   } else {
